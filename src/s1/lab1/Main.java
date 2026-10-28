@@ -1,0 +1,41 @@
+package s1.lab1;
+
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+        Invoice inv1 = new Invoice("INV-1", "lina@uni.edu");
+        inv1.addItem("Book", 100.0, 2);
+
+        inv1.printInvoice();
+        inv1.saveToDatabase("DATABASE");
+        System.out.println("DATABASE: " + Invoice.DATABASE);
+        inv1.sendEmail();
+        inv1.sendwhatsapp();
+        System.out.println(String.format(Locale.US, "Calculated Total: %.2f", inv1.calculateTotal()));
+
+        System.out.println();
+
+        Invoice inv2 = new Invoice("INV-2", "omar@uni.edu");
+        inv2.addItem("Laptop", 1200.0, 1);
+
+        inv2.printInvoice();
+        inv2.saveToDatabase("FILES");
+        System.out.println("FILES: " + Invoice.FILES);
+        inv2.sendEmail();
+        inv2.sendwhatsapp();
+        System.out.println(String.format(Locale.US, "Calculated Total: %.2f", inv2.calculateTotal()));
+
+        System.out.println();
+
+        Invoice inv3 = new Invoice("INV-3", "sara@uni.edu");
+        inv3.addItem("Item", 500.0, 2);
+
+        inv3.printInvoice();
+        inv3.saveToDatabase("DATABASE");
+        System.out.println("DATABASE: " + Invoice.DATABASE);
+        inv3.sendEmail();
+        inv3.sendwhatsapp();
+        System.out.println(String.format(Locale.US, "Calculated Total: %.2f", inv3.calculateTotal()));
+    }
+}
